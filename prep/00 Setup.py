@@ -13,7 +13,11 @@
 
 # COMMAND ----------
 
-spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog}")
+data_folder
+
+# COMMAND ----------
+
+# spark.sql(f"CREATE CATALOG IF NOT EXISTS {catalog}")
 
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {catalog}.{schema}")
 spark.sql(f"GRANT CREATE, USAGE on DATABASE {catalog}.{schema} TO `account users`")

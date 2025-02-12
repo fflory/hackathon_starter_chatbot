@@ -3,8 +3,20 @@
 
 # COMMAND ----------
 
+# from databricks.vector_search.client import VectorSearchClient
+# from databricks.vector_search.index import VectorSearchIndex
+# vs_client = VectorSearchClient(disable_notice=True)
+# # vsc.get_endpoint(name="one-env-shared-endpoint-0")
+# vs_index = vs_client.get_index(
+#     endpoint_name="one-env-shared-endpoint-0", #retriever_config.get("vector_search_endpoint_name"),
+#     index_name= "users.felix_flory.covid_data_title_index" # retriever_config.get("vector_search_index"),
+# )
+
+
+# COMMAND ----------
+
 import os
-os.environ["DATABRICKS_TOKEN"] = dbutils.secrets.get("multi_agent","pat")
+os.environ["DATABRICKS_TOKEN"] = dbutils.secrets.get("felix-flory","DBPAT")
 #os.environ["VECTOR_SEARCH_CLIENT_ID"] = dbutils.secrets.get("multi_agent","vector_search_client_id")
 #os.environ["VECTOR_SEARCH_CLIENT_SECRET"] = dbutils.secrets.get("multi_agent","vector_search_client_secret")
 os.environ["DATABRICKS_HOST"] = db_host_url

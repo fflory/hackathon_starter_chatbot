@@ -1,6 +1,6 @@
 databricks_resources:
   llm_endpoint_name: databricks-dbrx-instruct
-  vector_search_endpoint_name: covid_trials_vs_endpoint
+  vector_search_endpoint_name: one-env-shared-endpoint-0
 
 input_example:
   messages:
@@ -24,8 +24,8 @@ rag_agent_llm_config:
   - query
 
 retriever_config:
-  vector_search_endpoint_name: covid_trials_vs_endpoint
-  vector_search_index: main.covid_trials.covid_data_title_index
+  vector_search_endpoint_name: one-env-shared-endpoint-0
+  vector_search_index: users.felix_flory.covid_data_title_index
   workspace_url_environment_var: DATABRICKS_HOST
   pat_environment_var: DATABRICKS_TOKEN
   client_id_environment_var: VECTOR_SEARCH_CLIENT_ID
