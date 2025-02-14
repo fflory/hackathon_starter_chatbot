@@ -29,7 +29,7 @@ import databricks
 from databricks.vector_search.client import VectorSearchClient
 
 #name for the vector search endpoint
-vector_search_endpoint_name = "one-env-shared-endpoint-0" 
+vector_search_endpoint_name = "one-env-shared-endpoint-3" 
 
 #We are using an embedding endpoint available in Databricks Workspace
 #If needed we can use custom embedding endpoints as well

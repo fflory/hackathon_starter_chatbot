@@ -3,16 +3,41 @@
 
 # COMMAND ----------
 
+# MAGIC %load_ext autoreload
+# MAGIC %autoreload 2
+
+# COMMAND ----------
+
 import os
 
-os.environ["BRAVE_API_KEY"] = dbutils.secrets.get("multi_agent","web_search_api_key")
-os.environ["VECTOR_SEARCH_PAT"] = dbutils.secrets.get("multi_agent","pat")
+os.environ["BRAVE_API_KEY"] = dbutils.secrets.get("felix-flory","BRAVE_API_KEY")
+
+os.environ["VECTOR_SEARCH_PAT"] = dbutils.secrets.get("felix-flory","DBPAT")
+# os.environ["DATABRICKS_TOKEN"] = dbutils.secrets.get("felix-flory","DBPAT")
+os.environ["VECTOR_SEARCH_CLIENT_ID"] = dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_ID")
+os.environ["VECTOR_SEARCH_CLIENT_SECRET"] = dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_SECRET")
+os.environ["DATABRICKS_HOST"] = db_host_url
+
+# os.environ["VECTOR_SEARCH_PAT"] = dbutils.secrets.get("multi_agent","pat")
 #os.environ["VECTOR_SEARCH_CLIENT_ID"] = dbutils.secrets.get("multi_agent","vector_search_client_id")
 #os.environ["VECTOR_SEARCH_CLIENT_SECRET"] = dbutils.secrets.get("multi_agent","vector_search_client_secret")
-os.environ["WORKSPACE_URL"] = db_host_url
+# os.environ["WORKSPACE_URL"] = db_host_url
 
 
 from agents.multiagent import graph_with_parser, multi_agent_config
+
+# COMMAND ----------
+
+from IPython.display import Image, display
+from langchain_core.runnables.graph import CurveStyle, MermaidDrawMethod, NodeStyles
+
+display(
+    Image(
+        graph_with_parser.get_graph().draw_mermaid_png(
+            draw_method=MermaidDrawMethod.API,
+        )
+    )
+)
 
 # COMMAND ----------
 
@@ -104,13 +129,13 @@ client_secret_environment_var = multi_agent_config.get("retriever_config").get("
 workspace_url_environment_var = multi_agent_config.get("retriever_config").get("workspace_url_environment_var").upper()
 
 env_vars = {
-    api_key_env_var : dbutils.secrets.get("multi_agent","web_search_api_key"),
-    client_id_environment_var : dbutils.secrets.get("multi_agent","vector_search_client_id"),
-    client_secret_environment_var : dbutils.secrets.get("multi_agent","vector_search_client_secret"),
+    api_key_env_var : dbutils.secrets.get("felix-flory","BRAVE_API_KEY"),
+    client_id_environment_var : dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_ID"),
+    client_secret_environment_var : dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_SECRET"),
     workspace_url_environment_var : db_host_url
-} if "vector_search_client_id" in [s.key for s in dbutils.secrets.list("multi_agent")] else {
-    api_key_env_var : dbutils.secrets.get("multi_agent","web_search_api_key"),
-    pat_environment_var : dbutils.secrets.get("multi_agent","pat"),
+} if "SERVICE_PRINCIPAL_ID" in [s.key for s in dbutils.secrets.list("felix-flory")] else {
+    api_key_env_var : dbutils.secrets.get("felix-flory","BRAVE_API_KEY"),
+    pat_environment_var : dbutils.secrets.get("felix-flory","DBPAT"),
     workspace_url_environment_var : db_host_url
 }
 

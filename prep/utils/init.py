@@ -15,11 +15,11 @@ logging_timezone = pytz.timezone(timezone_for_logging)
 
 #catalog to use for creating data tables and keeping other resources
 #You need necessary privileges to create, delete tables, functions, and models
-catalog = "users"
+catalog = "felixflory"
 
 #schema to use for creating data tables and keeping other resources
 #You need necessary privileges to create, delete tables, functions, and model
-schema = "felix_flory" # "covid_trials"
+schema = "covid_trials" # ""
 
 #The Volume folder where data file will be copied to
 data_folder = "data"

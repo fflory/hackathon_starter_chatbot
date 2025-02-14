@@ -1,5 +1,5 @@
 multi_agent_llm_config:
-  llm_endpoint_name: srijit_nair_openai
+  llm_endpoint_name: ASK-BEFORE-USE-fflory-gpt-4o
   llm_parameters:
     max_tokens: 2000
     temperature: 0.01
@@ -17,7 +17,7 @@ helper_agent_llm_config:
     temperature: 0.01
 
 genie_agent_config:
-  genie_space_id: 01efae624eb11421a468187406487ff4
+  genie_space_id: 01efe9685e931086a75d4bb913f22b8e
 
 rag_agent_llm_config:
   llm_endpoint_name: databricks-dbrx-instruct
@@ -36,8 +36,8 @@ rag_agent_llm_config:
   - query
 
 retriever_config:
-  vector_search_endpoint_name: covid_trials_vs_endpoint
-  vector_search_index: main.covid_trials.covid_data_title_index
+  vector_search_endpoint_name: one-env-shared-endpoint-3
+  vector_search_index: felixflory.covid_trials.covid_data_title_index
   workspace_url_environment_var: DATABRICKS_HOST
   pat_environment_var: DATABRICKS_TOKEN
   client_id_environment_var: VECTOR_SEARCH_CLIENT_ID

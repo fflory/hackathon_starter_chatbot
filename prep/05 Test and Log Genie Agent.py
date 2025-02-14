@@ -6,7 +6,7 @@
 from databricks_langchain.genie import GenieAgent
 
 # add your genie space id here
-genie_space_id =  "01efae624eb11421a468187406487ff4"
+genie_space_id =  "01efe9685e931086a75d4bb913f22b8e"
 genie_agent = GenieAgent(genie_space_id, "Genie", description="This Genie Agent will have all data about COVID Trials and related articles")
 
 # COMMAND ----------

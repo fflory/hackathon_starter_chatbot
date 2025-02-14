@@ -17,8 +17,8 @@
 
 import os
 os.environ["DATABRICKS_TOKEN"] = dbutils.secrets.get("felix-flory","DBPAT")
-#os.environ["VECTOR_SEARCH_CLIENT_ID"] = dbutils.secrets.get("multi_agent","vector_search_client_id")
-#os.environ["VECTOR_SEARCH_CLIENT_SECRET"] = dbutils.secrets.get("multi_agent","vector_search_client_secret")
+os.environ["VECTOR_SEARCH_CLIENT_ID"] = dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_ID")
+os.environ["VECTOR_SEARCH_CLIENT_SECRET"] = dbutils.secrets.get("felix-flory","SERVICE_PRINCIPAL_SECRET")
 os.environ["DATABRICKS_HOST"] = db_host_url
 
 mlflow.langchain.autolog()
