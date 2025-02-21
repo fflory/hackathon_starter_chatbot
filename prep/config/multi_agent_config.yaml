@@ -20,7 +20,7 @@ genie_agent_config:
   genie_space_id: 01efe9685e931086a75d4bb913f22b8e
 
 rag_agent_llm_config:
-  llm_endpoint_name: databricks-dbrx-instruct
+  llm_endpoint_name: databricks-meta-llama-3-3-70b-instruct
   llm_parameters:
     max_tokens: 1500
     temperature: 0.01
